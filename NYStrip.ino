@@ -18,7 +18,8 @@ IRrecv irRX(IRRXPIN);
 Adafruit_NeoPixel NYStrip = Adafruit_NeoPixel(NUM_LEDS, DATA_PIN, NEO_GRB + NEO_KHZ800);
 decode_results results;
 
-void setup() {
+void setup() 
+{
   Serial.begin(9600);
   NYStrip.begin();
   irRX.enableIRIn();
@@ -26,7 +27,6 @@ void setup() {
   g = brightness;
   b = brightness;
   offColor = NYStrip.Color(0, 0, 0);
-  
 }
 
 void dump(decode_results *results) {
@@ -108,7 +108,8 @@ void fadeIn(byte _r, byte _g, byte _b)
 }
 
 void loop() { 
-  if (irRX.decode(&results)) {
+  if (irRX.decode(&results)) 
+  {
     Serial.println(results.value, HEX);
     dump(&results);
     irRX.resume(); // Receive the next value
